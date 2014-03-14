@@ -16,6 +16,10 @@
 //= require turbolinks
 //= require_tree .
 
+// CODE REVIEW: You should really remove this code from application.js and into
+// it's own file see:
+// http://guides.rubyonrails.org/asset_pipeline.html
+
 // * we go to the creation page
 // * it prompts us for the map title and description
 // * when that's submitted, it goes to the server and creates a new map
@@ -77,6 +81,8 @@ $(document).on("click", ".clickable", function(event){
   currentSquare = that;
   $(that).css("background", "blue");
   $("#room-form-container").empty();
+  // CODE REVIEW: Another way to do this is to have a hidden, on-page "template"
+  // of this markup that you clone and manipulate. Sometimes it can look nicer
   $("#room-form-container").append("<form id='room-form' action='/users/" + window.userId + "/maps/" + window.mapId + "/rooms' method='POST'><input type='text' placeholder='Room Name' name='title'><textarea form='room-form' name='description' placeholder='Room Description'></textarea><input id='north_id' type='hidden' name='north_id'><input id='south_id' type='hidden' name='south_id'><input id='east_id' type='hidden' name='east_id'><input id='west_id' type='hidden' name='west_id'><input type='hidden' name='map_id' value=" + window.mapId + "><input type='submit' value='Add Room'></form>");
 })
 

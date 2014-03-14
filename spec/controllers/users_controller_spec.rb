@@ -1,3 +1,4 @@
+# CODE REVIEW: Why is this checked in if it's all commented out?
 # require 'spec_helper'
 
 # describe UsersController do

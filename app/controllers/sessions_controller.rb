@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_username(params[:username])
     p user
     if user && user.authenticate(params[:password])
+      # CODE REVIEW: this is a good place for a helper...
       session[:user_id] = user.id
       redirect_to user_path(user), notice: 'Logged in!'
      else
