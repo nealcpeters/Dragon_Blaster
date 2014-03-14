@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    # CODE REVIEW: How do you handle the exception that can be raised by
+    # User.find?
     @user = User.find(session[:user_id])
   end
 
